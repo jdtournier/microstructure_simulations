@@ -17,6 +17,7 @@ if live_plot, plot_walkers (X.*param.axon_separation, param.assignments, figure_
 
 progress = 0;
 prev_progress = -1;
+fprintf (1, '       ');
 
 for k=1:numel(param.gradient_waveform)
 
@@ -33,6 +34,7 @@ for k=1:numel(param.gradient_waveform)
     progress = floor(100*k/numel(param.gradient_waveform));
     if progress ~= prev_progress
       fprintf (1, '\b\b\b\b\b\b\b%3d%%...', progress);
+      prev_progress = progress;
     end
 
 end
