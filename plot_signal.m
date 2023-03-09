@@ -10,10 +10,10 @@ end
 
 if with_assignments, ncols=2; else ncols=1; end
 
-gradient_directions = gradient_directions./sqrt(sum(gradient_directions.^2,2))
+gradient_directions = gradient_directions./sqrt(sum(gradient_directions.^2,2));
 
 Gdotx = 1e-6 * gradient_directions * param.cumulative_positions;
-dphase = 1e4 * param.timestep * gradient_amplitudes
+dphase = 2.68e8 * 1e-6 * param.timestep * gradient_amplitudes;
 
 bvalues = grad2bvalues (gradient_amplitudes, param.delta, param.Delta);
 

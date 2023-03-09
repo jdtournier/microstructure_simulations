@@ -1,11 +1,11 @@
 clear param;
 
 % axon radius and spacing (in µm):
-param.axon_radius = 0.15;
-param.axon_separation = 0.2;
+param.axon_radius = 0.49;
+param.axon_separation = 1;
 
-% diffusivity of free water at 37°C (in µm²/ms - i.e. 10e-9 mm²/s):
-param.D = 3e-3; 
+% diffusivity of free water at 37°C (in µm²/ms - i.e. 10e-3 mm²/s):
+param.D = 3; 
 
 % gradient pulse duration and separation (in ms):
 param.delta = 20;
@@ -15,11 +15,11 @@ param.Delta = 50;
 show_walkers_plot = false;
 
 % number of molecules to simulate:
-param.num_walkers = 10000;
+param.num_walkers = 2000;
 
 
 % compute safe step size:
-param.step_size = 0.9 * (1 - 2*param.axon_radius/param.axon_separation);
+param.step_size = 0.2;
 % work out time step this correspond to based on diffusivity:
 param.timestep = (param.axon_separation*param.step_size)^2/(6*param.D);
 
@@ -46,9 +46,9 @@ param = run_simulation (param, show_walkers_plot);
 % sweep from x-axis to z-axis in equidistant increments
 angle = (0:0.1:1)'.*pi/2;
 grad_dirs = [cos(angle) 0.*angle sin(angle)];
-grad_amps = 0:2:40; 
+grad_amps = 0:4:40; 
 disp ([ 'b-values: ' sprintf('%.3f ', grad2bvalues (grad_amps, param.delta, param.Delta)) 's/mm²' ])
 
 plot_signal (param, grad_dirs, grad_amps, true)
-%plot_signal_polar (param, grad_amps)
+plot_signal_polar (param, grad_amps)
 

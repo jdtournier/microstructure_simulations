@@ -1,9 +1,8 @@
-function plot_walkers (X, assignments, lim, figure_handle)
+function plot_walkers (X, assignments, figure_handle)
 
 arguments
     X (3,:) double
     assignments (2,:) double
-    lim (1,1) double = 10
     figure_handle (1,1) double = 1
 end
 
@@ -19,6 +18,7 @@ if isempty(plot_handle1) || ~isgraphics (plot_handle1)
     m=find(~isnan(assignments(1,:)));
     plot_handle2 = plot3(X(1,m), X(2,m), X(3,m), 'r.');
     hold off
+    lim = 1.5*max(abs(X),[],'all')
     xlim(lim*[-1 1])
     ylim(lim*[-1 1])
     zlim(lim*[-1 1])
@@ -27,7 +27,8 @@ if isempty(plot_handle1) || ~isgraphics (plot_handle1)
     box on
     set (gca, 'XLimMode', 'manual', ...
         'YLimMode', 'manual', ...
-        'ZLimMode', 'manual');
+        'ZLimMode', 'manual', ...
+        'Visible', 'off');
     campos([0 0 10*lim])
     camup([0 1 0])
 

@@ -14,6 +14,6 @@ k = find(isnan(assignments(1,:)) & any(~isnan(A),1));
 if ~isempty(k)
     x = X(1:2,k) - A(:,k);
     n = sqrt(sum(x.^2,1));
-    x = x.* (2*axon_radius./n - 1);
+    x = axon_radius * x./n;
     X(1:2,k) = x + A(:,k);
 end
