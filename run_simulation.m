@@ -32,7 +32,7 @@ for k=1:numel(param.gradient_waveform)
 
     progress = floor(100*k/numel(param.gradient_waveform));
     if progress ~= prev_progress
-      fprintf (1, '\r%3d%%...', progress);
+      fprintf (1, '\b\b\b\b\b\b\b%3d%%...', progress);
     end
 
 end

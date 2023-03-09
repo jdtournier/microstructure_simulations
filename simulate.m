@@ -1,8 +1,8 @@
 clear param;
 
 % axon radius and spacing (in µm):
-param.axon_radius = 0.49;
-param.axon_separation = 1;
+param.axon_radius = 0.9;
+param.axon_separation = 2;
 
 % diffusivity of free water at 37°C (in µm²/ms - i.e. 10e-3 mm²/s):
 param.D = 3; 
@@ -19,7 +19,7 @@ param.num_walkers = 2000;
 
 
 % compute safe step size:
-param.step_size = 0.2;
+param.step_size = 0.1;
 % work out time step this correspond to based on diffusivity:
 param.timestep = (param.axon_separation*param.step_size)^2/(6*param.D);
 

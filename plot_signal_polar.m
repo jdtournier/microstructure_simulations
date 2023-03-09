@@ -12,11 +12,9 @@ for n=1:numel(bvalues), l{n} = [ 'b = ' num2str(bvalues(n)) ]; end
 
 angle = (0:(1/ndirs):1)'.*(2*pi);
 gradient_directions = [cos(angle) 0.*angle sin(angle)];
-Gdotx = 1.e-6 * gradient_directions * param.cumulative_positions;
-dphase = 2.68e8 * 1e-6 * param.timestep * gradient_amplitudes;
+signal = compute_signals (param, gradient_directions, gradient_amplitudes);
 
 figure(figure_handle);
-signals = abs(sum(exp(1i*dphase'.*reshape(Gdotx, [ 1 size(Gdotx)])),3))'./size(Gdotx,2);
 
-polarplot (angle, signals);
+polarplot (angle, signal);
 legend (l, 'location', 'eastoutside');
