@@ -27,15 +27,21 @@ disp (sprintf ('number of time steps: %.3d', numel(param.gradient_waveform)))
 param = run_simulation (param, show_walkers_plot);
 
 
+% now we can pick a set of gradient directions and amplitudes to compute the
+% dMRI signal:
 
-
-% gradients: 
-% sweep from x-axis to z-axis in equidistant increments
+% gradients sweeps from x-axis to z-axis in equidistant increments:
 angle = (0:0.1:1)'.*pi/2;
 grad_dirs = [cos(angle) 0.*angle sin(angle)];
+
+% gradient amplitudes from zero to 40 mT/m:
 grad_amps = 0:4:40; 
+
+% show what b-values these gradients give rise to, based on gradient waveform
+% used during simulations:
 disp ([ 'b-values: ' sprintf('%.3f ', grad2bvalues (grad_amps, param.delta, param.Delta)) 'ms/µm²' ])
 
+% two different ways of plotting the signal:
 plot_signal (param, grad_dirs, grad_amps);
 plot_signal_polar (param, grad_amps);
 
