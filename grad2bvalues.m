@@ -6,4 +6,4 @@ arguments
     gradient_separation (1,1) double
 end
 
-bvalues = (2.68e8)^2 * gradient_amplitudes.^2 * gradient_duration^2 * (gradient_separation - gradient_duration/3) * 1e-15 * 1e-6;
+bvalues = (2.68e8)^2 * gradient_amplitudes.^2 * gradient_duration^2 * (gradient_separation - gradient_duration/3) * 1e-15 * 1e-9;
