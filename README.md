@@ -15,20 +15,24 @@ step size in a random orientation per time step:
 $$
 \mathbf{x}_n(t) = \mathbf{x}_n(t-1) + \epsilon \hat{\mathbf{u}} \qquad \textrm{with } \hat{\mathbf{u}} \sim \mathcal{U}
 $$
+
 Where $\mathcal{U}$ is the uniform probability density function over the unit sphere. 
 
 During the simulation, the cumulative sum of the product of each walker's
 position $\mathbf{x}_n(t)$ with the (unit amplitude) gradient timecourse
 $\Gamma(t)$ is computed:
+
 $$
 \tilde{\mathbf{x}}_n = \sum_t \mathbf{x}_n(t) \Gamma(t)
 $$
 
 This can then be used to compute the diffusion MRI signal expected for any
 gradient maximum amplitude $G$ and (unit) direction vector $\hat{\mathbf{g}}$:
+
 $$
 S = \frac{S_0}{N} \sum_n^N \exp\left( i \gamma G \\; \tilde{\mathbf{x}}_n \cdot \hat{\mathbf{g}}\right)
 $$
+
 where $\gamma$ is the gyromagnetic ratio of ¹H.
 
 This formulation makes it possible to derive the signal for any combination of
@@ -81,6 +85,7 @@ param = generate_PGSE_waveform (param, 20, 50);
 ```
 This will also work out the appropriate time step for the simulation based on
 the `step_size` and the bulk diffusivity `D`:
+
 $$
 \delta t = \frac{\epsilon^2}{6 D}
 $$
