@@ -57,3 +57,7 @@ parallel to perpendicular to the axons. Use the gradients of 0, 10, 20 and 40
 mT/m. Summarise and explain the main features of your result.
 
 
+# Part 2: Effect of axonal geometry
+
+
+# Part 3: Effect of gradient timings
