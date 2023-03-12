@@ -31,33 +31,46 @@ Perform simulations for the following parameters:
 
 Use the output of these simulations to investigate the following:
 
+## 1.1 — Effect of gradient direction
 
-## 1.1 — Effect of _b_-value
+Show what happens to the dMRI signal as the gradient direction sweeps from
+parallel to perpendicular to the axons. Use the gradients of 0, 10, 20 and 40
+mT/m. Summarise and explain the main features of your result.
+
+## 1.2 — Effect of _b_-value
 
 Show what happens to the dMRI signal as the _b_-value increases from zero to
 the maximum achievable for the above sequence on a system with
 $G_{\textrm{max}}$ = 40 mT/m, with the gradient applied perpendicular and
 parallel to the axons. Summarise and explain the main features of your results.
 
-Use your results and the equation:
+## 1.3 — Impact on ADC, mean diffusivity and anistropy
+
+Use your results from question 1.2 and the equation:
 
 $$
 S = S_0 e^{-bD}
 $$
 
-to compute $D$, the apparent diffusion coefficient (ADC) along and across the axons
-respectively. Plot the dependence of $D$ as a function of _b_-value for both
-directions. Summarise and explain the main features of your result.
+to compute $D_\parallel$ and $D_\perp$, the apparent diffusion coefficient (ADC) along and across the axons
+respectively. Plot their dependence as a function of _b_-value. Summarise and explain the main features of your result.
 
+Use these results and the equations:
 
-## 1.2 — Effect of gradient direction
+$$
+MD = ⅓D_\parallel + ⅔D_\perp
+$$
 
-Show what happens to the dMRI signal as the gradient direction sweeps from
-parallel to perpendicular to the axons. Use the gradients of 0, 10, 20 and 40
-mT/m. Summarise and explain the main features of your result.
+$$
+FA = \sqrt{\frac{3}{2} - \frac{(D_\parallel + 2D_\perp)^2}{2(D_\parallel^2 + 2D_\perp^2)} }
+$$
 
+To compute MD & FA, the mean diffusivity and fractional anistropy respectively. 
+Plot their dependence as a function of _b_-value. 
+Summarise and explain the main features of your result.
 
 # Part 2: Effect of axonal geometry
+
 
 
 # Part 3: Effect of gradient timings
