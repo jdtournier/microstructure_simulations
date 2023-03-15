@@ -25,8 +25,8 @@ fellow students, but your solutions must be your own.
 Perform simulations for the following parameters:
 
 - $\delta$ / $\Delta$ = 20 / 50 ms
-- axon radius = 0.45 µm
-- axon separation = 1 µm
+- axon radius = 0.9 µm
+- axon separation = 2 µm
 - bulk diffusivity = 3 µm²/ms
 
 Use the output of these simulations to investigate the following:
@@ -53,7 +53,8 @@ S = S_0 e^{-bD}
 $$
 
 to compute $D_\parallel$ and $D_\perp$, the apparent diffusion coefficient (ADC) along and across the axons
-respectively. Plot their dependence as a function of _b_-value. Summarise and explain the main features of your result.
+respectively, also known as the axial and radial diffusivities.
+Plot their dependence as a function of _b_-value. Summarise and explain the main features of your result.
 
 Use these results and the equations:
 
@@ -71,6 +72,52 @@ Summarise and explain the main features of your result.
 
 # Part 2: Effect of axonal geometry
 
+## 2.1 — Effect of packing density
+
+Show what happens as the axon packing density changes, by varying the axon separation while holding the axon radius fixed. 
+Set the axon radius to 1µm, and run simulations for axon separations of 2.1,
+2.2, 2.5 & 3µm (holding all other parameters the same as in Part 1).
+Note that you may find these take a lot longer, especially when the
+axon diameter gets close to the axon separation, as the step size will get
+smaller to adjust for the tighter geometry; nonetheless, on my laptop, the
+slowest run completed within a few minutes. 
+
+Plot the effect this has on:
+- the dMRI signals along and across the axons,
+- the estimated axial and radial diffusivities $D_\parallel$ and $D_\perp$,
+- the corresponding MD & FA values
+Summarise and explain the main features of your result.
+
+
+## 2.2 — Effect of axon radius
+
+Show what happens as the axon radius changes, by varying the axon radius while maintaining the ratio of axon radius to axon separation. 
+Set the axon radius to 0.5, 1, 3 & 10µm, and set the axon separation to
+2.2× the axon radius to maintain the same relative volume fractions (holding
+all other parameters the same as in Part 1).
+As before, you will find the simulations for the smaller axon radius take
+longer to compute.
+
+Plot the effect this has on:
+- the dMRI signals along and across the axons,
+- the estimated axial and radial diffusivities $D_\parallel$ and $D_\perp$,
+- the corresponding MD & FA values
+Summarise and explain the main features of your result.
 
 
 # Part 3: Effect of gradient timings
+
+Show what happens as the pulse duration changes, by varying $\delta$, holding
+the $b$-value and effective diffusion time ($\Delta - \delta/3$) constant. 
+Set the pulse duration to 1, 2, 5, 10 & 20ms, and the gradient amplitudes to
+560, 280, 112, 56 & 28 mT/m, modifying $\Delta$ so that $\Delta - \delta/3$
+remains constant. As part of your answer, verify that this results in the same
+nominal $b$-value (close to 1 ms/µm²).
+
+
+Plot the effect this has on:
+- the dMRI signals along and across the axons,
+- the estimated axial and radial diffusivities $D_\parallel$ and $D_\perp$,
+- the corresponding MD & FA values
+Summarise and explain the main features of your result.
+

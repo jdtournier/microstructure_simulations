@@ -26,6 +26,9 @@ disp (sprintf ('number of time steps: %.3d', numel(param.gradient_waveform)))
 
 param = run_simulation (param, show_walkers_plot);
 
+% it's a good idea to save your results to file, so you can avoid having to
+% recompute them later:
+save results1 param
 
 % now we can pick a set of gradient directions and amplitudes to compute the
 % dMRI signal:
