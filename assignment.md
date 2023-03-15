@@ -9,16 +9,15 @@ For this assignment, you will need to download the code hosted on the
 [microstructure
 simulations](https://github.com/jdtournier/microstructure_simulations)
 repository on GitHub. This contains MatLab code to perform simulations of
-water diffusion in a simple model of brain white matter. 
+water diffusion in a simple model of brain white matter, and computes the
+diffusion MRI signal that would be expected for an arbitrary set of diffusion
+gradient directions and amplitudes. 
 
 [Click here](https://github.com/jdtournier/microstructure_simulations/archive/refs/heads/main.zip)
 to download the code as a ZIP archive. \
 Please familiarise yourself with the code by going through the
 [README](https://github.com/jdtournier/microstructure_simulations/blob/main/README.md). 
 
-
-Please also remember that this is an assessed exercise. You are welcome to discuss with your
-fellow students, but your solutions must be your own.
 
 # Part 1: General behaviour
 
@@ -52,72 +51,49 @@ $$
 S = S_0 e^{-bD}
 $$
 
+which can be inverted to give:
+
+$$
+D = - \frac{1}{b} \ln \left( \frac{S}{S_0} \right)
+$$
+
 to compute $D_\parallel$ and $D_\perp$, the apparent diffusion coefficient (ADC) along and across the axons
 respectively, also known as the axial and radial diffusivities.
 Plot their dependence as a function of _b_-value. Summarise and explain the main features of your result.
 
-Use these results and the equations:
+Use these results to compute the mean diffusivity MD:
 
 $$
 MD = ⅓D_\parallel + ⅔D_\perp
 $$
 
+and a simplified measure of anisotropy, based on the ratio between radial and
+axial diffusivities (it would be better to use the fractional anisotropy, but
+its calculation is needlessly complex for this assignment, and this measure is a close enough
+approximation):
+
 $$
-FA = \sqrt{\frac{3}{2} - \frac{(D_\parallel + 2D_\perp)^2}{2(D_\parallel^2 + 2D_\perp^2)} }
+A = 1 - \frac{D_\perp}{D_\parallel}
 $$
 
-To compute MD & FA, the mean diffusivity and fractional anistropy respectively. 
-Plot their dependence as a function of _b_-value. 
-Summarise and explain the main features of your result.
-
-# Part 2: Effect of axonal geometry
-
-## 2.1 — Effect of packing density
-
-Show what happens as the axon packing density changes, by varying the axon separation while holding the axon radius fixed. 
-Set the axon radius to 1µm, and run simulations for axon separations of 2.1,
-2.2, 2.5 & 3µm (holding all other parameters the same as in Part 1).
-Note that you may find these take a lot longer, especially when the
-axon diameter gets close to the axon separation, as the step size will get
-smaller to adjust for the tighter geometry; nonetheless, on my laptop, the
-slowest run completed within a few minutes. 
-
-Plot the effect this has on:
-- the dMRI signals along and across the axons,
-- the estimated axial and radial diffusivities $D_\parallel$ and $D_\perp$,
-- the corresponding MD & FA values
+Plot the dependence of mean diffusivity and anisotropy as a function of _b_-value. 
 Summarise and explain the main features of your result.
 
 
-## 2.2 — Effect of axon radius
+## 1.4 — Effect of packing density
 
-Show what happens as the axon radius changes, by varying the axon radius while maintaining the ratio of axon radius to axon separation. 
-Set the axon radius to 0.5, 1, 3 & 10µm, and set the axon separation to
-2.2× the axon radius to maintain the same relative volume fractions (holding
-all other parameters the same as in Part 1).
-As before, you will find the simulations for the smaller axon radius take
-longer to compute.
+Holding all other parameters fixed, set the axon separation to 3µm, and produce
+the same plots as for question 1.3 to show the effect this has on axial &
+radial diffusivity, mean diffusivity, and anisotropy.
 
-Plot the effect this has on:
-- the dMRI signals along and across the axons,
-- the estimated axial and radial diffusivities $D_\parallel$ and $D_\perp$,
-- the corresponding MD & FA values
-Summarise and explain the main features of your result.
+Summarise and explain the main features of your results.
 
 
-# Part 3: Effect of gradient timings
+## 1.5 — Effect of axon radius
 
-Show what happens as the pulse duration changes, by varying $\delta$, holding
-the $b$-value and effective diffusion time ($\Delta - \delta/3$) constant. 
-Set the pulse duration to 1, 2, 5, 10 & 20ms, and the gradient amplitudes to
-560, 280, 112, 56 & 28 mT/m, modifying $\Delta$ so that $\Delta - \delta/3$
-remains constant. As part of your answer, verify that this results in the same
-nominal $b$-value (close to 1 ms/µm²).
+Holding all other parameters fixed, set the axon radius to 9µm, and the axon
+separation to 20µm, and produce the same plots as for question 1.3 to show
+the effect this has on axial & radial diffusivity, mean diffusivity, and
+anisotropy.
 
-
-Plot the effect this has on:
-- the dMRI signals along and across the axons,
-- the estimated axial and radial diffusivities $D_\parallel$ and $D_\perp$,
-- the corresponding MD & FA values
-Summarise and explain the main features of your result.
-
+Summarise and explain the main features of your results.

@@ -7,10 +7,11 @@ arguments
 end
 
 radius = param.axon_radius / param.axon_separation;
+step_size = param.step_size / param.axon_separation;
 
 X = 20*(rand(3, param.num_walkers)-0.5);
 param.assignments = in_fibre (X, radius);
-X = reflect (X, radius, param.assignments);
+%X = reflect (X, radius, param.assignments);
 param.cumulative_positions = zeros(3, param.num_walkers);
 
 if live_plot, plot_walkers (X.*param.axon_separation, param.assignments, figure_handle); end
@@ -22,7 +23,7 @@ fprintf (1, '       ');
 for k=1:numel(param.gradient_waveform)
 
     % each walker takes a random step:
-    X = random_step (X, param.step_size);
+    X = random_step (X, step_size);
     % make sure walkers remain within their original compartment:
     X = reflect (X, radius, param.assignments);
     % update phase based on current gradient:

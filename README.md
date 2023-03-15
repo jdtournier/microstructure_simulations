@@ -127,15 +127,4 @@ The signal will be computed for all combinations of $N$ direction and $M$
 amplitude, returned in the form of a $M \times N$ matrix of signal amplitudes. 
 
 
-### Plotting the dMRI signal:
-
-There are two convenience calls for plotting the signals:
-
-- `plot_signals()` takes the parameter structure, and the gradient directions &
-  amplitudes in the same format as for `compute_signals()`, and plots them as a
-  function of b-value and direction respectively.
-
-- `plot_signal_polar()` takes the parameter structure, and the gradient
-  amplitudes, and plots the signal as a function of orientation as a polar plot.
-
 
