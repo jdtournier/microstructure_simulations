@@ -93,7 +93,7 @@ $$
 ### Running the simulation:
 
 Once the parameters have been set, the simulation can be run using the
-`run_simulation()` call, with take the parameter struct as its argument, and
+`run_simulation()` call, with takes the parameter struct as its argument, and
 optionally a boolean value if you wish to visualise the random walkers while
 the simulation is ongoing (at the cost of an considerable increase in runtime):
 ```
@@ -123,8 +123,8 @@ where:
 - `gradient_amplitudes` is a vector of size $M$ for each gradient amplitude, in
   mT/m units. 
 
-The signal will be computed for all combinations of $N$ direction and $M$
-amplitude, returned in the form of a $M \times N$ matrix of signal amplitudes. 
+The signal will be computed for all combinations of $N$ directions and $M$
+amplitudes, returned in the form of a $M \times N$ matrix of signal amplitudes. 
 
 
 
