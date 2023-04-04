@@ -7,7 +7,7 @@ arguments
 end
 
 % work out time step based on step size and diffusivity:
-param.timestep = (param.axon_separation*param.step_size)^2/(6*param.D);
+param.timestep = param.step_size^2/(6*param.D);
 
 delta_steps = round(delta/param.timestep);
 Delta_steps = round(Delta/param.timestep);
